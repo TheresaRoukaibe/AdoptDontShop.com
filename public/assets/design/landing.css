@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;800;900&display=swap');
+:root{
+    --mainColor: green;
+    --hoverColor: darkgreen;
+    --backgroundColor: rgb(224, 243, 224);
+    --darkOne: #312f3a;
+    --darkTwo: #45424b;
+    --lightOne: #919191;
+    --lightTwo: #aaa;
+}
+*, *::before, *::after{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+img{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.big-wrapper{
+padding: 1.7rem 0 2rem;
+width:100%;
+min-height: 100vh;
+overflow:hidden;
+background-color:var(--backgroundColor);
+}
+
+.container{
+position: relative;
+max-width: 81rem;
+width: 100%;
+margin: 0 auto;
+padding: 0 3rem;
+z-index: 10;
+}
+
+header .container{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+.logo img{
+    width: 300px;
+}
+
+.links ul{
+    display:flex;
+    list-style:none;
+    align-items:center;
+}
+
+.links a{
+    color: var(--lightTwo);
+    margin-left: 4.5rem;
+    display: inline-block;
+transition: .3s;
+}
+
+.links a:hover{
+color: var(--hoverColor);
+transform: scale(1.05);
+}
+.btn{
+    display: inline-block;
+padding: .9rem 1.9rem;
+color:white !important;
+background-color: var(--mainColor);
+border-radius: 16px;
+text-transform: capitalize;
+transition: .3s;
+}
+
+.btn:hover{
+    background-color: var(--hoverColor);
+    transform: scale(1) !important;
+    
+}
