@@ -172,3 +172,40 @@ transition: 0.3s;
 .toggle:hover{
     background: var(--mainColor);
 }
+
+
+.copy{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:100;
+    animation: appear 1s 1 both;
+}
+
+.stop-scroll{
+    height: 100%;
+    overflow: hidden;
+}
+
+@keyframes appear{
+    0%{
+        clip-path:circle(30% at -25% -25%);
+    }
+
+    100%{
+        clip-path: circle(150% at 0 0);
+    }
+}
+
+@media screen and (max-width: 870px){
+    .showcase .container{
+        grid-template-columns: 1fr;
+
+    }
+
+    .person{
+        width: 100%;
+        transform: none;
+
+    }
+}
