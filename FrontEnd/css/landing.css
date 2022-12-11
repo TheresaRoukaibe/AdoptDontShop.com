@@ -342,6 +342,13 @@ align-items: center;
 justify-content: center;
 }
 
+
+#signin{
+display:flex;
+align-items: center;
+justify-content: center;
+}
+
 .box{
     position:relative;
     width: 100%;
@@ -350,6 +357,7 @@ justify-content: center;
     height: 540px;
     background-color: white;
     box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+    margin-bottom: 50px;
 }
 
 .inner-box{
@@ -368,6 +376,29 @@ transform: translate(-50%, -50%);
 top: 0;
 left: 0;
 
+}
+
+.forms-wrap2{
+    position: absolute;
+    height: 100%;
+    width: 55%;
+    left: 45%;
+    top:0;
+
+}
+
+.design2{
+    position: absolute;
+    height: 100%;
+    width: 45%;
+top: 0;
+left: 0;
+background-color: rgb(129, 233, 129);
+border-radius: 50%;
+background-image: url("../assets/img/pass.svg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
 }
 
 .design{
@@ -451,6 +482,23 @@ color: #bbb;
     left: 0;top: 50%;
     transform: translateY(-50%);
 }
+.signUp-btn{
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background-color: var(--mainColor);
+    color:white;
+    border:none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    transition: 0.3s
+}
+
+.signUp-btn:hover{
+    background-color: var(--hoverColor);
+}
 
 .sign-btn{
     display: inline-block;
@@ -468,4 +516,11 @@ color: #bbb;
 
 .sign-btn:hover{
     background-color: var(--hoverColor);
+}
+
+select{
+    outline:0;
+    box-shadow: none;
+    border: 0!important;
+    background: lightgreen;
 }
