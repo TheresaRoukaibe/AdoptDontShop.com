@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;800;900&display=swap');
 .light {
     --mainColor: green;
-    --hoverColor: darkgreen;
+    --hoverColor: rgb(5, 56, 5);
     --backgroundColor: rgb(224, 243, 224);
     --darkOne: #312f3a;
     --darkTwo: #45424b;
@@ -24,7 +24,7 @@
     box-sizing: border-box;
 }
 
-body {
+body, input {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -329,4 +329,143 @@ font-size: 46px;
   font-size: 52px;
   font-weight: 700;
   line-height: normal;
+}
+
+.section-padding {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#volunteer{
+display:flex;
+align-items: center;
+justify-content: center;
+}
+
+.box{
+    position:relative;
+    width: 100%;
+    border-radius: 3.3rem;
+    max-width: 1020px;
+    height: 540px;
+    background-color: white;
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+}
+
+.inner-box{
+position: absolute;
+width: calc(100% - 4.1rem);
+height:calc(100% - 4.1rem);
+top:50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.forms-wrap{
+    position: absolute;
+    height: 100%;
+    width: 45%;
+top: 0;
+left: 0;
+
+}
+
+.design{
+    position: absolute;
+    height: 100%;
+    width: 55%;
+    left: 45%;
+    top:0;
+    background-image: url("../assets/img/happy.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+
+}
+
+form{
+    max-width: 260px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.logo2 img{
+width: 200px;
+margin: 0.3rem;
+}
+
+.heading h2{
+    font-size:2.1rem;
+    font-weight: 600 !important;
+    color: var(--darkOne);
+}
+
+.heading h6{
+    color: var(--lightOne);
+    font-weight: 400;
+    font-size: 0.75rem;
+    display: inline;
+}
+
+.btn-toggle{
+    color: black;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight:  800px !important;
+    transition: 0.3s;
+}
+
+.btn-toggle:hover{
+color: var(--mainColor);
+}
+
+.input-wrap{
+    position: relative;
+    height: 37px;
+    margin-bottom: 2rem;
+}
+
+.input-field{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline:none;
+    border-bottom: 1px solid #bbb;
+    padding:0;
+    font-size:0.95rem;
+    color:#151111;
+
+}
+
+label{
+    pointer-events:none;
+font-size:0.95rem;
+color: #bbb;
+    position: absolute;
+    left: 0;top: 50%;
+    transform: translateY(-50%);
+}
+
+.sign-btn{
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background-color: var(--mainColor);
+    color:white;
+    border:none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    transition: 0.3s
+}
+
+.sign-btn:hover{
+    background-color: var(--hoverColor);
 }
