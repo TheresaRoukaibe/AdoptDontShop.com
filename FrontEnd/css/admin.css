@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;800;900&display=swap');
+
+/* (A) GLOBAL */
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  padding: 0; margin: 0;
+}
+
+.txt{
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+/* (B) SIDEBAR */
+/* (B1) SIDEBAR ITSELF */
+#pgside {
+  width: 200px;
+  transition: width 0.2s;
+  background: green;
+}
+
+/* (B2) USER OR BRANDING */
+#pgside #pguser {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+}
+#pgside #pguser img {
+  width: 50px;
+  margin-right: 5px;
+  border-radius: 50%
+}
+
+/* (B3) SIDEBAR ITEMS */
+#pgside, #pgside a { color: #fff; }
+#pgside a {
+  display: block;
+  padding: 20px;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#pgside a:hover { background: rgb(47, 97, 47);}
+
+/* (B4) SIDEBAR ICONS & TEXT */
+#pgside i.ico, #pgside i.txt { font-style: normal; }
+#pgside i.ico {
+  font-size: 1.1em;
+  margin-right: 10px;
+}
+
+/* (B5) SMALL SCREEN TRANSFORMATION */
+@media screen and (max-width:768px) {
+  #pgside { width: 70px; }
+  #pgside #pguser { justify-content: center; }
+  #pgside a {
+    text-align: center;
+    padding: 20px 0;
+  }
+  #pgside i.ico {
+    font-size: 1.5em;
+    margin-right: 0;
+  }
+  #pgside i.txt { display: none; }
+}
+
+/* (C) MAIN CONTENTS */
+#pgmain {
+  flex-grow: 1;
+  padding: 20px;
+  background: #f2f2f2;
+}
+
+.gallery{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex:wrap;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin-top: 10%;
+
+}
+
+.pic{
+position: relative;
+height:230px;
+border-radius: 10px;
+box-shadow: 3px 3px 5px lightgray;
+cursor:pointer;
+}
+
+.pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.pic::before{
+    content: "See Applicants";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: .3s;
+    transition-delay: .2s;
+z-index: 1;
+}
+
+.pic:after{
+    content: "";
+    width:100%;
+    height: 100%;
+    bottom: 0;
+    left:0;
+    border-radius: 10px;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    position:absolute;
+}
+
+.pic:hover::after{
+height: 100%;
+}
+
+.pic:hover:before{
+margin-top: 0;
+opacity: 1;
+}
