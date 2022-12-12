@@ -17,3 +17,25 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(["prefix" => "v0.1"], function(){
+    Route::group(["prefix" => "user"], function(){
+        Route::post("signup", [UserController::class, "register"]);
+        Route::post("login", [UserController::class, "login"]);
+        Route::get("get_saved/{user_id}", [UserController::class, "get_saved"]);
+        Route::get("get_user_info/{user_id}", [UserController::class, "get_user_info"]);
+        Route::post("update/{user_id}", [UserController::class, "edit_profile"]);
+        Route::get("get_adopted/{user_id}", [UserController::class, "get_adopted"]);
+    });
+
+    Route::group(["prefix" => "pets"], function(){
+        Route::get("get_dogs/{user_id?}", [PetController::class, "get_dog"]);
+        Route::post("get_dog_applicant/{dog_id}", [PetController::class, "get_applicants"]);
+    });
+
+    Route::group(["prefix" => "admin"], function(){
+        Route::get("get_admin_dogs/{company_id}", [PetController::class, "get_admin_dogs"]);
+        Route::post("remove_dog/{dog_id}", [PetController::class, "remove_dog"]);
+
+    });
+});
