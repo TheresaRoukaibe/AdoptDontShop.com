@@ -91,4 +91,30 @@ class UserController extends Controller
         }
         }
     }
+
+    function edit_profile(Request $req, $id){
+        $user = User::where('id', '=', $id)->first();
+        if($user){
+            if(Hash::check($req->old_pass, $user->password)){
+                $user->fname = $req->fname;
+                $user->lname = $req->lname;
+                 $user->email = $req->email;
+                 $user->password = $req->new_password;
+                 $user->location = $req->location;
+                 $user->save();
+                 return response()->json([
+                    "status" => "Info edited"
+                ]);
+            }else{
+                return response()->json([
+                    "status" => "Wrong password"
+                ]);
+            }
+
+        }else{
+            return response()->json([
+                "status" => "User not found"
+            ]);
+        }
+    }
 }
