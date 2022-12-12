@@ -25,7 +25,7 @@ Route::group(["prefix" => "v0.1"], function(){
         Route::post("signup", [UserController::class, "register"]);
         Route::post("login", [UserController::class, "login"]);
         Route::get("get_saved/{user_id}", [UserController::class, "get_saved"]);
-        Route::get("get_user_info/{user_id}", [UserController::class, "get_user_info"]);
+        Route::get("get_user_info/{id}", [UserController::class, "get_user_info"]);
         Route::post("update/{user_id}", [UserController::class, "edit_profile"]);
         Route::get("get_adopted/{user_id}", [UserController::class, "get_adopted"]);
     });

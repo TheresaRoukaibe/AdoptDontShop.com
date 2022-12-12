@@ -5,6 +5,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -41,7 +42,7 @@ class UserController extends Controller
         }else{
            if(Hash::check($request->password, $check_user->password)){
                 return response()->json([
-                    "status" => $check_user->id
+                    "status" => $check_user
                 ]);
             }else{
 
@@ -49,6 +50,45 @@ class UserController extends Controller
                     "status" => "Wrong Password"
                 ]);
             }
+        }
+    }
+
+    function get_saved($id){
+        if(!$id){
+            return response()->json([
+                "status" => "Params Error"
+            ]);
+        }else{
+            $dogs = DB::table('user_saves')->join('pets', 'pets.id', '=', 'user_saves.dog_id')->where('user_saves.id', '=', $id)->get();
+            if(!$dogs->isEmpty()){
+            return response()->json([
+                "status" => $dogs
+            ]);
+        }else{
+            return response()->json([
+            "status" => "No saved dogs"
+        ]);
+        }
+        }
+    }
+
+    function get_user_info($id){
+        if(!$id){
+            return response()->json([
+                "status" => "Params Error"
+            ]);
+        }else{
+            $user = User::where('id', '=', $id)->get();
+            if($user){
+                return response()->json([
+                    "status" => $user
+                ]);
+        }else{
+            return response()->json([
+                "status" => "No user found"
+            ]);
+            
+        }
         }
     }
 }
