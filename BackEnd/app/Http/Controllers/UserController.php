@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,7 +19,7 @@ class UserController extends Controller
             $new_user->fname = $req->fname;
             $new_user->lname = $req->lname;
             $new_user->email = $req->email;
-            $new_user->password = bcrypt($req->password);
+            $new_user->password = Hash::make($req->password);
             $new_user->location = $req->address;
             $new_user->user_type_id = $req->user_type_id;
             $new_user->save();
@@ -31,18 +32,19 @@ class UserController extends Controller
     }
 
     function login(Request $request){
-        $user = User::where('email', $request->email)->get();
-        if($user){
+        $check_user = User::where("email", "=", $request->email)->first();
+
+        if(!$check_user){
             return response()->json([
                 "status" => "Email not found"
             ]);
         }else{
-            $check_pass = User::where("email", $request->email)->where("password", bcrypt($request->password))->get();
-            if($check_pass){
+           if(Hash::check($request->password, $check_user->password)){
                 return response()->json([
-                    "status" => $check_pass->id
+                    "status" => $check_user->id
                 ]);
             }else{
+
                 return response()->json([
                     "status" => "Wrong Password"
                 ]);
