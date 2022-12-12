@@ -31,7 +31,7 @@ class UserController extends Controller
     }
 
     function login(Request $request){
-        $user = User::where('email', '=', $request->email)->first();
+        $user = User::where('email', $request->email)->get();
         if($user){
             return response()->json([
                 "status" => "Email not found"
