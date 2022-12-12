@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;800;900&display=swap');
+
+body {
+    background: green;
+    font-family: "Poppins";
+}
+.profile-button {
+    background: green !important;
+    box-shadow: none;
+    border: none !important;
+}
+
+.profile-button:hover {
+    background: rgb(50, 116, 50) !important;
+}
+
+
+
+
+.labels {
+    font-size: 11px
+}
+
+h4{
+    color: green;
+    font-weight: 800;
+}
