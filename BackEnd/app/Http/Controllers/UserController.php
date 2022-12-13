@@ -36,7 +36,11 @@ class UserController extends Controller
             $new_user->email = $req->email;
             $new_user->password = Hash::make($req->password);
             $new_user->location = $req->address;
-            $new_user->user_type_id = $req->user_type_id;
+            if($req->user_type == 'Volunteer'){
+            $new_user->user_type_id = 0;
+            }else{
+                $new_user->user_type_id = 1;
+            }
             $new_user->save();
             return response()->json([
                 "status" => "User Added"

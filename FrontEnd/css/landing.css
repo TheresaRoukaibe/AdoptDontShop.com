@@ -8,8 +8,14 @@
     --lightOne: #919191;
     --lightTwo: #aaa;
 }
-#error_in{
+#error_in {
     color:red;
+    font-size: 12px;
+}
+
+#error_reg{
+    color:red !important;
+    font-size: 12px !important;
 }
 
 .dark{
@@ -346,7 +352,7 @@ justify-content: center;
 }
 
 
-#signin{
+#signup{
 display:flex;
 align-items: center;
 justify-content: center;
