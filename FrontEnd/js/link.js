@@ -42,7 +42,17 @@ adoption_pages.postAPI = async (url ,data) => {
     }
 }
 
-adoption_pages.load_landing =()=> {
+
+adoption_pages.load_browse = async() => {
+    const id = window.localStorage.getItem('id');
+    const get_user_url = base_url + "user/get_user_info/" + id;
+    const response = await adoption_pages.getAPI(get_user_url);
+    const data = response.data;
+    const welcome = document.getElementById("greeting");
+    welcome.innerText= "Welcome " +data.status[0].fname + " !";
+}
+
+adoption_pages.load_landing = () => {
     const btn = document.getElementById("signin");
     const btn_register = document.getElementById("btn_reg");
      const error = document.getElementById("error_in");
@@ -69,8 +79,10 @@ adoption_pages.load_landing =()=> {
               }else{
 if(resp_data.status.user_type_id == 1){
     window.location.href = "admin.html";
+    window.localStorage.setItem('id', resp_data.status.id);
 }else{
     window.location.href = "browse.html";
+    window.localStorage.setItem('id', resp_data.status.id);
 }
               }
         }
