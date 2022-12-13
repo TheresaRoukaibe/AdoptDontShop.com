@@ -52,6 +52,19 @@ adoption_pages.load_browse = async() => {
     welcome.innerText= "Welcome " +data.status[0].fname + " !";
 }
 
+adoption_pages.load_profile = async() => {
+    const id = window.localStorage.getItem('id');
+    const get_user_url = base_url + "user/get_user_info/" + id;
+    const response = await adoption_pages.getAPI(get_user_url);
+    const data = response.data;
+    const profile_email = document.getElementById("user_email");
+    const profile_name = document.getElementById("user_name");
+    const profile_address = document.getElementById("user_address");
+   profile_email.innerText= data.status[0].email;
+   profile_address.innerText= data.status[0].location;
+   profile_name.innerText = data.status[0].fname +" " + data.status[0].lname ;
+}
+
 adoption_pages.load_landing = () => {
     const btn = document.getElementById("signin");
     const btn_register = document.getElementById("btn_reg");
