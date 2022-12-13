@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('dog_id');
-            $table->timestamps();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

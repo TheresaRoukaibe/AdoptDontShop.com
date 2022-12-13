@@ -22,8 +22,8 @@
                         <ul>
                             <li><a href="#features">Features</a></li>
                             <li><a href="#mission">Mission</a></li>
-                            <li><a href="#volunteer">Volunteer</a></li>
-                            <li><a href="#signin" class="btn">Sign In</a></li>
+                            <li><a href="#signin">Volunteer</a></li>
+                            <li><a href="#volunteer" class="btn">Sign In</a></li>
                     </ul>
                     </div>
 
@@ -180,21 +180,21 @@
                                     <div class="heading">
                                         <h2>Welcome Back!</h2>
                                         <h6>Not registered yet?</h6>
-                                        <a class="btn-toggle" href="#signup">Sign Up</a>
+                                        <a class="btn-toggle" href="#signin">Sign Up</a>
                                     </div>
 
                                     <div class="actual-form">
                                         <div class="input-wrap">
-                                            <input type="email" class="input-field" id="email" placeholder="Enter your email" required/>
+                                            <input type="email" class="input-field" id="email_in" placeholder="Enter your email" required/>
                                             
                                         </div>
 
                                         <div class="input-wrap">
-                                            <input type="password" class="input-field" id="password" placeholder="Enter your password" required/>
+                                            <input type="password" class="input-field" id="password_in" placeholder="Enter your password" required/>
                                           
                                         </div>
-
-                                        <input type="submit" value="Sign In" class="sign-btn">
+                                        <h6 id="error_in"></h6>
+                                        <input id="signin" type="submit" value="Sign In" class="sign-btn">
                                     </div>
                                 </form>
                             </div>
@@ -262,6 +262,9 @@
        
       
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="C:\Users\User\Desktop\adoptDontShop\FrontEnd\js\link.js"></script>
+    <script>adoption_pages.loadFor("landing");</script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="C:\Users\User\Desktop\adoptDontShop\FrontEnd\js\themes.js"></script>
 </body>

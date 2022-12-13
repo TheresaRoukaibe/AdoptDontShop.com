@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Mpdels\Pet;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -9,6 +10,19 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    function get_adopted($user_id){
+        $dogs = Pet::where('user_id', '=', $user_id)->get();
+        if($dogs){
+            return response()->json([
+                "status" => $dogs
+            ]);
+        }else{
+            return response()->json([
+                "status" => "No dogs adopted"
+            ]);
+        }
+    }
+
     function register(Request $req){
         $user = User::where('email', '=', $req->email)->first();
         if($user){
@@ -34,7 +48,6 @@ class UserController extends Controller
 
     function login(Request $request){
         $check_user = User::where("email", "=", $request->email)->first();
-
         if(!$check_user){
             return response()->json([
                 "status" => "Email not found"

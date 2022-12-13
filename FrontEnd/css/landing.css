@@ -8,6 +8,9 @@
     --lightOne: #919191;
     --lightTwo: #aaa;
 }
+#error_in{
+    color:red;
+}
 
 .dark{
     --mainColor: green;
