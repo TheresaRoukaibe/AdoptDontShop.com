@@ -135,6 +135,8 @@ adoption_pages.load_saved = async () => {
 adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');
     const status = document.getElementById("status");
+      const gallery = document.getElementById("gallery");
+      
     const get_adopted = base_url + "user/get_adopted/" +user_id;
     const response_adopted = await adoption_pages.getAPI(get_adopted);
     const adopted_data = response_adopted.data;
