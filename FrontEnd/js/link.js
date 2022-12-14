@@ -133,6 +133,10 @@ adoption_pages.load_saved = async () => {
     }
 }
 
+adoption_pages.load_adopted = async () => {
+    
+}
+
 adoption_pages.load_dog_profile = async() => {
 const url_string  = window.location.search;
 const params = new URLSearchParams(url_string);
