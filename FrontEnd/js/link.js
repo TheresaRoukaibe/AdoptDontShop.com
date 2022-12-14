@@ -132,7 +132,7 @@ adoption_pages.load_saved = async () => {
     }
 }
 
-adoption_pages.load_saved = async () => {
+adoption_pages.load_admin = async () => {
      const comp_id = window.localStorage.getItem('id');
      const status = document.getElementById("status");
     const get_admin_url = base_url + "admin/get_admin_dogs/"+comp_id;
