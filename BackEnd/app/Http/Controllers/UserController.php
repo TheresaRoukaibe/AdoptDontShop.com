@@ -123,7 +123,7 @@ class UserController extends Controller
                 "status" => "Params Error"
             ]);
         }else{
-            $dogs = DB::table('user_saves')->join('pets', 'pets.id', '=', 'user_saves.dog_id')->where('user_saves.id', '=', $id)->get();
+            $dogs = DB::table('user_saves')->join('pets', 'pets.id', '=', 'user_saves.dog_id')->where('user_saves.user_id', '=', $id)->get();
             if(!$dogs->isEmpty()){
             return response()->json([
                 "status" => $dogs
