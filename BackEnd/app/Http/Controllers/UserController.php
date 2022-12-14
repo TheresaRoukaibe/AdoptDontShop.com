@@ -12,15 +12,21 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     function get_adopted($user_id){
-        $dogs = Pet::where('user_id', '=', $user_id)->get();
-        if($dogs){
+        if(!$user_id){
+            return response()->json([
+                "status" => "Params Error"
+            ]);
+        }else{
+            $dogs = DB::table('wants')->join('pets', 'pets.id', '=', 'wants.dog_id')->where('wants.user_id', '=', $user_id)->get();
+            if(!$dogs->isEmpty()){
             return response()->json([
                 "status" => $dogs
             ]);
         }else{
             return response()->json([
-                "status" => "No dogs adopted"
-            ]);
+            "status" => "No adopted dogs"
+        ]);
+        }
         }
     }
 
