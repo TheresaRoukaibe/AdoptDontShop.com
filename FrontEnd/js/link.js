@@ -116,6 +116,27 @@ adoption_pages.load_add_dog = async() => {
    })
 }
 
+adoption_pages.load_dog_profile = async() => {
+const url_string  = window.location.search;
+const params = new URLSearchParams(url_string);
+const id = params.get('id');
+const get_dog_url = base_url + "pets/get_dog/"+id;
+    const response_dog = await adoption_pages.getAPI(get_dog_url);
+    const dog_data = response_dog.data;
+const profile = document.getElementById('img');
+profile.src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/"+dog_data.status.img_src;
+const name = document.getElementById('dog_title');
+const breed = document.getElementById('dog_breed');
+const age = document.getElementById('dog_age');
+const loc = document.getElementById('dog_loc');
+const cond = document.getElementById('dog_condition');
+name.innerText = dog_data.status.name;
+breed.innerText = dog_data.status.breed;
+age.innerText = dog_data.status.age;
+loc.innerText = dog_data.status.found_in;
+cond.innerText = dog_data.status.condition;
+}
+
 adoption_pages.load_gallery = async() => {
     const get_dogs_url = base_url + "pets/get_dog";
     const response_dogs = await adoption_pages.getAPI(get_dogs_url);
