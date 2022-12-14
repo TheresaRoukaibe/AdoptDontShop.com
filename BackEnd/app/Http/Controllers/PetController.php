@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 
 class PetController extends Controller
 {
+    function get_admin_dogs($company_id){
+
+    }
     
     function add_dog(Request $req, $comp_id){
             $new_pet = new Pet;
