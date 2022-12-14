@@ -116,6 +116,23 @@ adoption_pages.load_add_dog = async() => {
    })
 }
 
+adoption_pages.load_saved = async () => {
+     const user_id = window.localStorage.getItem('id');
+     const status = document.getElementById("status");
+    const get_saved= base_url + "user/get_saved/" +user_id;
+    const response_saved = await adoption_pages.getAPI(get_saved);
+    console.log(response_saved);
+    const saved_data = response_saved.data;
+    const gallery = document.getElementById("gallery");
+    if(saved_data.status.length == 0){
+        status.innerText = "Nothing saved yet..."
+    }else{
+    for(let i =0; i< saved_data.status.length; i++){
+       gallery.innerHTML += "<div class='pic'>" +"<h6>"+saved_data.status[i].name +"</h6>" + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + saved_data.status[i].img_src + '">'+"</div";
+    }
+    }
+}
+
 adoption_pages.load_dog_profile = async() => {
 const url_string  = window.location.search;
 const params = new URLSearchParams(url_string);
