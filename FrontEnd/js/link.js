@@ -146,6 +146,12 @@ adoption_pages.load_admin = async () => {
        gallery.innerHTML += "<div class='pic'>" +"<a href='applicants.html'>" + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + admin_data.status[i].img_src + '"> </a>'+"</div";
     }
     }
+
+    const get_user_url = base_url + "user/get_user_info/" + comp_id;
+    const response = await adoption_pages.getAPI(get_user_url);
+    const data = response.data;
+    const name = document.getElementById("title");
+    name.innerText= data.status[0].fname ;
 }
 
 adoption_pages.load_adopted = async () => {
