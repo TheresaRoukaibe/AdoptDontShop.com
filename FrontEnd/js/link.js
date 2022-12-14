@@ -159,6 +159,23 @@ const data = response.data;
             window.location.href = "browse.html";
             }
     });
+
+    adopt.addEventListener("click", async function(){
+    const user_id = window.localStorage.getItem('id');
+      const adopt_url = base_url + "user/adopt_dog";
+      const body = {
+          user_id: user_id,
+          dog_id: dog_data.status.id
+
+      };
+        const response = await adoption_pages.postAPI(adopt_url, body);
+        const adopt_data = response.data;
+        if(adopt_data.status == "Already Adopted"){
+          alert("Already adopted this dog");
+        }else if(adopt_data.status == "Dog Adopted"){
+          window.location.href = "browse.html";
+          }
+  });
 }
 
 adoption_pages.load_gallery = async() => {

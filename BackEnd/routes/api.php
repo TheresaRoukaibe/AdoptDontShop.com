@@ -29,6 +29,7 @@ Route::group(["prefix" => "v0.1"], function(){
         Route::post("update/{id}", [UserController::class, "edit_profile"]);
         Route::get("get_adopted/{user_id}", [UserController::class, "get_adopted"]);
         Route::post("save_dog", [UserController::class, "save_dog"]);
+        Route::post("adopt_dog", [UserController::class, "adopt_dog"]);
     });
 
     Route::group(["prefix" => "pets"], function(){
