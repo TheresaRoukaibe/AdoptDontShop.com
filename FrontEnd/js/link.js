@@ -135,8 +135,9 @@ adoption_pages.load_saved = async () => {
 adoption_pages.load_saved = async () => {
      const comp_id = window.localStorage.getItem('id');
      const status = document.getElementById("status");
-    const get_admin_url = base_url_url + "admin/get_admin_dogs/"+comp_id;
-
+    const get_admin_url = base_url + "admin/get_admin_dogs/"+comp_id;
+    const response_admin = await adoption_pages.getAPI(get_admin_url);
+    
 }
 
 adoption_pages.load_adopted = async () => {
