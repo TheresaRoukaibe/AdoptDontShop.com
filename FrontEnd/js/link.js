@@ -145,9 +145,9 @@ adoption_pages.load_adopted = async () => {
     }else{
     for(let i =0; i< adopted_data.status.length; i++){
         if(adopted_data.status[i].is_adopted == 0){
-       gallery.innerHTML += "<div class='pic'>" +"<h4>"+saved_data.status[i].name +"</h4>" +"<h6>Status: Pending </h6>"+ '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + saved_data.status[i].img_src + '">'+"</div";
+       gallery.innerHTML += "<div class='pic'>" +"<h4>"+adopted_data.status[i].name +"</h4>" +"<h6>Status: Pending </h6>"+ '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + adopted_data.status[i].img_src + '">'+"</div";
         }else{
-            gallery.innerHTML += "<div class='pic'>" +"<h4>"+saved_data.status[i].name +"</h4>" +"<h6>Status: Adoption accepted </h6>"+ '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + saved_data.status[i].img_src + '">'+"</div";
+            gallery.innerHTML += "<div class='pic'>" +"<h4>"+adopted_data.status[i].name +"</h4>" +"<h6>Status: Adoption accepted </h6>"+ '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + adopted_data.status[i].img_src + '">'+"</div";
         }
     }
     }
