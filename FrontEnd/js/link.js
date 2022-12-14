@@ -91,32 +91,39 @@ adoption_pages.load_add_dog = async() => {
         const dog_breed = document.getElementById("dog_breed").value;
        const dog_location = document.getElementById("dog_location").value;
        const dog_condition = document.getElementById("dog_condition").value;
-       const dog_img = document.getElementById("dog_img").value;
+       const dog_img = document.getElementById("dog_img");
+       const formData = new FormData();
+       formData.append('img_src', dog_img.files[0]);
+       formData.append('name', dog_name);
+       formData.append('age', dog_age);
+       formData.append('breed', dog_breed);
+        formData.append('found_in', dog_location);
+        formData.append('condition', dog_condition);
        if(dog_name =="" || dog_age=="" || dog_breed=="" || dog_location=="" || dog_condition==""){
            error_adding.innerText = "Please fill all the fields!"
        }else{
            const add_url = base_url + "admin/add_dog/"+id;
-           const add_dog_data = {
-               name: dog_name,
-               dog_age: dog_age,
-               breed: dog_breed,
-               found_in: dog_location,
-               condition: dog_condition,
-               img_src: dog_img
-
-           };
-             const response = await adoption_pages.postAPI(add_url, add_dog_data);
+        
+             const response = await adoption_pages.postAPI(add_url, formData);
              console.log(response);
-            /*const resp_data = response.data;
-             if(resp_data.status == "Wrong password"){
-              error_edit.innerText = "Please enter your correct password to edit!";
-            }else if(resp_data.status == "Info edited"){
-              window.location.href = "profile.html";
-      }else{
-        error_edit.innerText = "Something went wrong! Could not edit :(";
-      }*/
+            const resp_data = response.data;
+             if(resp_data.status == "Error Adding"){
+              error_adding.innerText = "Something went wrong :(";
+            }else if(resp_data.status == "Dog Added"){
+              window.location.href = "admin.html";
+      }
    }
    })
+}
+
+adoption_pages.load_gallery = async() => {
+    const get_dogs_url = base_url + "pets/get_dog";
+    const response_dogs = await adoption_pages.getAPI(get_dogs_url);
+    const dogs_data = response_dogs.data;
+    const gallery = document.getElementById("gallery_pics");
+    for(let i =0; i< dogs_data.status.length; i++){
+       gallery.innerHTML += "<div class='pic' onclick='seeDetails()'>" + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + dogs_data.status[i].img_src + '">' +"</div";
+    }
 }
 
 adoption_pages.load_browse = async() => {
