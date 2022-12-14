@@ -139,7 +139,13 @@ adoption_pages.load_saved = async () => {
     const response_admin = await adoption_pages.getAPI(get_admin_url);
     const admin_data = response_admin.data;
     const gallery = document.getElementById("gallery");
-    
+    if(admin_data.status.length == 0){
+        status.innerText = "No dogs added yet..."
+    }else{
+    for(let i =0; i< admin_data.status.length; i++){
+       gallery.innerHTML += "<div class='pic'>" +"<a href='applicants.html'>" + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + admin_data.status[i].img_src + '"> </a>'+"</div";
+    }
+    }
 }
 
 adoption_pages.load_adopted = async () => {
