@@ -122,7 +122,7 @@ adoption_pages.load_gallery = async() => {
     const dogs_data = response_dogs.data;
     const gallery = document.getElementById("gallery_pics");
     for(let i =0; i< dogs_data.status.length; i++){
-       gallery.innerHTML += "<div class='pic' onclick='seeDetails()'>" + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + dogs_data.status[i].img_src + '">' +"</div";
+       gallery.innerHTML += "<div class='pic' onclick='seeDetails("+dogs_data.status[i].id+")'>" + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + dogs_data.status[i].img_src + '">' +"</div";
     }
 }
 

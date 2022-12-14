@@ -4,6 +4,6 @@ hamburger.addEventListener('click', function(){
     this.classList.toggle('is-active');
 })
 
-function seeDetails(){
-    window.location.href ="dog_profile.html";
+function seeDetails(id){
+    window.location.href ="dog_profile.html?id="+id;
 }
