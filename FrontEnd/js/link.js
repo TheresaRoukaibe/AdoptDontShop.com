@@ -135,7 +135,9 @@ adoption_pages.load_saved = async () => {
 
 adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');
-    const status = document.getElementById("status");Getting needed 
+    const status = document.getElementById("status");
+    const get_adopted = base_url + "user/get_adopted/" +user_id;
+    
 }
 
 adoption_pages.load_dog_profile = async() => {
