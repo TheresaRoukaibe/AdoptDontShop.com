@@ -10,9 +10,24 @@ use Illuminate\Support\Facades\DB;
 class PetController extends Controller
 {
     function get_admin_dogs($company_id){
-
+        if(!$company_id){
+            return response()->json([
+                "status" => "Params Error"
+            ]);
+        }else{
+            $dogs = Pet::where("company_id", "=", $company_id)->get();
+            if(!$dogs->isEmpty()){
+            return response()->json([
+                "status" => $dogs
+            ]);
+        }else{
+            return response()->json([
+            "status" => "No dogs posted yet"
+        ]);
+        }
+        }
     }
-    
+
     function add_dog(Request $req, $comp_id){
             $new_pet = new Pet;
             if($req->hasFile('img_src')){
