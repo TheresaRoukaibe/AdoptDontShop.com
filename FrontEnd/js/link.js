@@ -136,10 +136,17 @@ adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');
     const status = document.getElementById("status");
       const gallery = document.getElementById("gallery");
-      
+
     const get_adopted = base_url + "user/get_adopted/" +user_id;
     const response_adopted = await adoption_pages.getAPI(get_adopted);
     const adopted_data = response_adopted.data;
+     if(adopted_data.status.length == 0){
+        status.innerText = "No dogs adopted yet :("
+    }else{
+    for(let i =0; i< saved_data.status.length; i++){
+       gallery.innerHTML += "<div class='pic'>" +"<h6>"+saved_data.status[i].name +"</h6>" + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + saved_data.status[i].img_src + '">'+"</div";
+    }
+    }
 }
 
 adoption_pages.load_dog_profile = async() => {
