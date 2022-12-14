@@ -121,7 +121,6 @@ adoption_pages.load_saved = async () => {
      const status = document.getElementById("status");
     const get_saved= base_url + "user/get_saved/" +user_id;
     const response_saved = await adoption_pages.getAPI(get_saved);
-    console.log(response_saved);
     const saved_data = response_saved.data;
     const gallery = document.getElementById("gallery");
     if(saved_data.status.length == 0){
@@ -137,7 +136,8 @@ adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');
     const status = document.getElementById("status");
     const get_adopted = base_url + "user/get_adopted/" +user_id;
-    
+    const response_adopted = await adoption_pages.getAPI(get_adopted);
+    const adopted_data = response_adopted.data;
 }
 
 adoption_pages.load_dog_profile = async() => {
