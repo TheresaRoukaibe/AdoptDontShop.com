@@ -31,11 +31,12 @@ Route::group(["prefix" => "v0.1"], function(){
     });
 
     Route::group(["prefix" => "pets"], function(){
-        Route::get("get_dogs/{user_id?}", [PetController::class, "get_dog"]);
+        Route::get("get_dog/{dog_id?}", [PetController::class, "get_dog"]);
         Route::get("get_dog_applicant/{dog_id}/{user_id}", [PetController::class, "get_applicants"]);
     });
 
     Route::group(["prefix" => "admin"], function(){
+        Route::post("add_dog/{company_id}", [PetController::class, "add_dog"]);
         Route::get("get_admin_dogs/{company_id}", [PetController::class, "get_admin_dogs"]);
         Route::post("remove_dog/{dog_id}", [PetController::class, "remove_dog"]);
 

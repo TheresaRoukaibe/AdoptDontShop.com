@@ -9,7 +9,37 @@ use Illuminate\Support\Facades\DB;
 
 class PetController extends Controller
 {
+    function add_dog(Request $req, $comp_id){
+            $new_pet = new Pet;
+            if($req->hasFile('img_src')){
+                $req->validate([
+                    'image' => 'mimes:jpeg,bmp,png'
+                ]);
+
+                $req->img_src->store('pets', 'public');
+                $new_pet->img_src = $req->img_src;
+            }
+            $new_pet->name = $req->name;
+            $new_pet->age = $req->age;
+            $new_pet->breed = $req->breed;
+            $new_pet->found_in = $req->found_in;
+            $new_pet->condition = $req->condition;
+            $new_pet->is_adopted = 0;
+             $new_pet->company_id = $comp_id;
+             $new_pet->user_id = -1;
+            if($new_pet->save()){
+            return response()->json([
+                "status" => "Dog Added"
+            ]);
+            }else{
+                return response()->json([
+                    "status" => "Error Adding"
+                ]);
+            }
+    }
+
     function get_dog($id = null){
+
         if($id){
             $dog=Pet::find($id);
             if($dog){
@@ -18,18 +48,24 @@ class PetController extends Controller
             ]);
         }else{
             return response()->json([
+                "status" => "No dog with this id in db"
+            ]);
+        }
+        } else{
+            $dogs = Pet::where("is_adopted", "=", "0")->get();
+            if($dogs){
+            return response()->json([
+             "status" => $dogs
+         ]);
+        }else{
+            return response()->json([
                 "status" => "No dogs in db"
             ]);
         }
-            
-        }else{
-           $dogs = Pet::where("isAdopted", "=", 0);
-           return response()->json([
-            "status" => $dogs
-        ]);
         }
-
+        
     }
+
 
     function get_applicants($dog_id){
         if(!$dog_id){

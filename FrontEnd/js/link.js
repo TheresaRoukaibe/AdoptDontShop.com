@@ -81,6 +81,44 @@ adoption_pages.load_edit = async() => {
    })
 }
 
+adoption_pages.load_add_dog = async() => {
+    const id = window.localStorage.getItem('id');
+     const btn_add_dog = document.getElementById("add");
+     const error_adding = document.getElementById("error_adding");
+    btn_add_dog.addEventListener("click", async function(){
+       const dog_name = document.getElementById("dog_name").value;
+       const dog_age = document.getElementById("dog_age").value;
+        const dog_breed = document.getElementById("dog_breed").value;
+       const dog_location = document.getElementById("dog_location").value;
+       const dog_condition = document.getElementById("dog_condition").value;
+       const dog_img = document.getElementById("dog_img").value;
+       if(dog_name =="" || dog_age=="" || dog_breed=="" || dog_location=="" || dog_condition==""){
+           error_adding.innerText = "Please fill all the fields!"
+       }else{
+           const add_url = base_url + "admin/add_dog/"+id;
+           const add_dog_data = {
+               name: dog_name,
+               dog_age: dog_age,
+               breed: dog_breed,
+               found_in: dog_location,
+               condition: dog_condition,
+               img_src: dog_img
+
+           };
+             const response = await adoption_pages.postAPI(add_url, add_dog_data);
+             console.log(response);
+            /*const resp_data = response.data;
+             if(resp_data.status == "Wrong password"){
+              error_edit.innerText = "Please enter your correct password to edit!";
+            }else if(resp_data.status == "Info edited"){
+              window.location.href = "profile.html";
+      }else{
+        error_edit.innerText = "Something went wrong! Could not edit :(";
+      }*/
+   }
+   })
+}
+
 adoption_pages.load_browse = async() => {
     const id = window.localStorage.getItem('id');
     const get_user_url = base_url + "user/get_user_info/" + id;

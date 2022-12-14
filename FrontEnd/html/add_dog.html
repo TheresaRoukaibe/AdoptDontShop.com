@@ -17,17 +17,18 @@
                         <h4 class="text-right">Add dog</h4>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels"> Name</label><input type="text" class="form-control" placeholder="Name" value=""></div>
-                        <div class="col-md-6"><label class="labels">Age</label><input type="number" class="form-control" value="" placeholder="Age"></div>
+                        <div class="col-md-6"><label class="labels"> Name</label><input id="dog_name" type="text" class="form-control" placeholder="Name" value=""></div>
+                        <div class="col-md-6"><label class="labels">Age</label><input id="dog_age" type="number" class="form-control" value="" placeholder="Age"></div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Breed</label><input type="text" class="form-control" placeholder="Breed" value=""></div>
+                        <div class="col-md-12"><label class="labels">Breed</label><input id="dog_breed" type="text" class="form-control" placeholder="Breed" value=""></div>
                        
-                        <div class="col-md-12"><label class="labels">Found in</label><input type="text" class="form-control" placeholder="Found in" value=""></div>
-                        <div class="col-md-12"><label class="labels">Condition</label><input type="text" class="form-control" placeholder="Dog condition" value=""></div>
-                         <div class="col-md-12"><label class="labels">Picture</label><input type="file" class="form-control" value=""></div>
+                        <div class="col-md-12"><label class="labels">Found in</label><input id="dog_location" type="text" class="form-control" placeholder="Found in" value=""></div>
+                        <div class="col-md-12"><label class="labels">Condition</label><input id="dog_condition" type="text" class="form-control" placeholder="Dog condition" value=""></div>
+                         <div class="col-md-12"><label class="labels">Picture</label><input id="dog_img" type="file" class="form-control" name="img_src"></div>
                     </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Add Dog</button></div>
+                    <h6 id="error_edit"></h6>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" id="add">Add Dog</button></div>
                 </div>
             </div>
 
@@ -38,5 +39,9 @@
     </div>
     </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+   <script src="C:\Users\User\Desktop\adoptDontShop\FrontEnd\js\link.js"></script>
+   <script>adoption_pages.loadFor("add_dog");</script>
 </body>
 </html>
