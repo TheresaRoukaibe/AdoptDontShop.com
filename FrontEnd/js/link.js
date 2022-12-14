@@ -144,7 +144,20 @@ const data = response.data;
 
     const book_btn = document.getElementById("bookmark");
     book_btn.addEventListener("click", async function(){
-        
+          const user_id = window.localStorage.getItem('id');
+        const save_url = base_url + "user/save_dog";
+        const body = {
+            user_id: user_id,
+            dog_id: dog_data.status.id
+
+        };
+          const response = await adoption_pages.postAPI(save_url, body);
+          const save_data = response.data;
+          if(save_data.status == "Already Saved"){
+            alert("Already saved this dog");
+          }else if(save_data.status == "User Saved"){
+            window.location.href = "browse.html";
+            }
     });
 }
 

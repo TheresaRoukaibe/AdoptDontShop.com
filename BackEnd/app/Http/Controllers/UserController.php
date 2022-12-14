@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Mpdels\Pet;
-
+use App\Models\Pet;
+use App\Models\User_save;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +21,29 @@ class UserController extends Controller
                 "status" => "No dogs adopted"
             ]);
         }
+    }
+
+    function save_dog(Request $req){
+
+        $check = User_save::where('dog_id', '=', $req->dog_id)->where('user_id', '=', $req->user_id)->first();
+        if($check){
+            return response()->json([
+                "status" => "Already Saved"
+            ]);
+        }else{
+        $save = new User_save;
+        $save->user_id = $req->user_id;
+        $save->dog_id = $req->dog_id;
+        if($save->save()){
+            return response()->json([
+                "status" => "User Saved"
+            ]);
+        }else{
+            return response()->json([
+                "status" => "Failed to save"
+            ]);
+        }
+    }
     }
 
     function register(Request $req){

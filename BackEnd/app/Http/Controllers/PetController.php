@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class PetController extends Controller
 {
+    
     function add_dog(Request $req, $comp_id){
             $new_pet = new Pet;
             if($req->hasFile('img_src')){

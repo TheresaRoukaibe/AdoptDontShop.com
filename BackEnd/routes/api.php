@@ -28,11 +28,13 @@ Route::group(["prefix" => "v0.1"], function(){
         Route::get("get_user_info/{id}", [UserController::class, "get_user_info"]);
         Route::post("update/{id}", [UserController::class, "edit_profile"]);
         Route::get("get_adopted/{user_id}", [UserController::class, "get_adopted"]);
+        Route::post("save_dog", [UserController::class, "save_dog"]);
     });
 
     Route::group(["prefix" => "pets"], function(){
         Route::get("get_dog/{dog_id?}", [PetController::class, "get_dog"]);
         Route::get("get_dog_applicant/{dog_id}/{user_id}", [PetController::class, "get_applicants"]);
+       
     });
 
     Route::group(["prefix" => "admin"], function(){
