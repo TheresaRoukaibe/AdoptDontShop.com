@@ -135,6 +135,17 @@ breed.innerText = dog_data.status.breed;
 age.innerText = dog_data.status.age;
 loc.innerText = dog_data.status.found_in;
 cond.innerText = dog_data.status.condition;
+
+const get_user_url = base_url + "user/get_user_info/" + dog_data.status.company_id;
+const response = await adoption_pages.getAPI(get_user_url);
+const data = response.data;
+    const company = document.getElementById("company_email");
+    company.innerText = data.status[0].email;
+
+    const book_btn = document.getElementById("bookmark");
+    book_btn.addEventListener("click", async function(){
+        
+    });
 }
 
 adoption_pages.load_gallery = async() => {
