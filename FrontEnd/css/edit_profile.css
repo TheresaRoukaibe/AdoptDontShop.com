@@ -25,3 +25,8 @@ h4{
     color: green;
     font-weight: 800;
 }
+
+#error_edit {
+    color: red;
+    font-size: 12px;
+}

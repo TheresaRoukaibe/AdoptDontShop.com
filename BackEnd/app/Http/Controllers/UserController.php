@@ -116,7 +116,7 @@ class UserController extends Controller
                 $user->fname = $req->fname;
                 $user->lname = $req->lname;
                  $user->email = $req->email;
-                 $user->password = $req->new_password;
+                 $user->password = Hash::make($req->new_password);
                  $user->location = $req->location;
                  $user->save();
                  return response()->json([

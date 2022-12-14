@@ -42,6 +42,44 @@ adoption_pages.postAPI = async (url ,data) => {
     }
 }
 
+adoption_pages.load_edit = async() => {
+    const id = window.localStorage.getItem('id');
+     const btn_edit = document.getElementById("save");
+     const error_edit = document.getElementById("error_edit");
+    btn_edit.addEventListener("click", async function(){
+        const error_edit = document.getElementById("error_edit");
+       const edit_fname = document.getElementById("edit_fname").value;
+       const edit_lname = document.getElementById("edit_lname").value;
+        const edit_email = document.getElementById("edit_email").value;
+       const old_password = document.getElementById("old_password").value;
+       const edit_address = document.getElementById("edit_address").value;
+       const edit_password = document.getElementById("edit_password").value;
+       if(edit_fname =="" || edit_lname=="" || edit_email=="" || old_password=="" || edit_address=="" || edit_password ==""){
+           error.innerText = "Please fill all the fields!"
+       }else{
+           const edit_url = base_url + "user/update/"+id;
+           const edit_data = {
+               fname: edit_fname,
+               lname: edit_lname,
+               email: edit_email,
+               new_password: edit_password,
+               old_pass: old_password,
+               location: edit_address
+
+           };
+             const response = await adoption_pages.postAPI(edit_url, edit_data);
+             console.log(response);
+            const resp_data = response.data;
+             if(resp_data.status == "Wrong password"){
+              error_edit.innerText = "Please enter your correct password to edit!";
+            }else if(resp_data.status == "Info edited"){
+              window.location.href = "profile.html";
+      }else{
+        error_edit.innerText = "Something went wrong! Could not edit :(";
+      }
+   }
+   })
+}
 
 adoption_pages.load_browse = async() => {
     const id = window.localStorage.getItem('id');
@@ -69,7 +107,6 @@ adoption_pages.load_landing = () => {
     const btn = document.getElementById("signin");
     const btn_register = document.getElementById("btn_reg");
      const error = document.getElementById("error_in");
-     const error_reg = document.getElementById("error_register");
     btn.addEventListener("click", async function(){
         const user_email = document.getElementById("email_in").value;
         const user_pass = document.getElementById("password_in").value;
@@ -102,6 +139,7 @@ if(resp_data.status.user_type_id == 1){
     })
 
     btn_register.addEventListener("click", async function(){
+         const error_reg = document.getElementById("error_reg");
         const new_fname = document.getElementById("lname").value;
         const new_lname = document.getElementById("fname").value;
          const new_email = document.getElementById("email").value;
@@ -123,7 +161,6 @@ if(resp_data.status.user_type_id == 1){
             };
               const response = await adoption_pages.postAPI(post_url, data);
               const resp_data = response.data;
-              console.log(resp_data);
               if(resp_data.status == "User Exists"){
                error_reg.innerText = "User with this email already exists!";
              }else if(resp_data.status == "User Added"){
