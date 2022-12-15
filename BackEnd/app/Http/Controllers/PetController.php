@@ -98,6 +98,13 @@ return response()->json([
 ]);
 }
 
+function choose_user(Request $req){
+    $dog = Pet::where('id', '=', $req->dog_id);
+    $dog->is_adopted = 1;
+    $dog->user_id = $req->user_id;
+    
+}
+
     function get_applicants($dog_id){
         if(!$dog_id){
             return response()->json([
