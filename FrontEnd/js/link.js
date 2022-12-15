@@ -143,7 +143,7 @@ adoption_pages.load_admin = async () => {
         status.innerText = "No dogs added yet..."
     }else{
     for(let i =0; i< admin_data.status.length; i++){
-       gallery.innerHTML += "<div class='pic'>" +"<a href='applicants.html'>" + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + admin_data.status[i].img_src + '"> </a>'+"</div";
+       gallery.innerHTML += "<div class='pic' onclick='seeApplicants("+admin_data.status[i].id+")>"  + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + admin_data.status[i].img_src + '"> '+"</div";
     }
     }
 
@@ -154,6 +154,13 @@ adoption_pages.load_admin = async () => {
     name.innerText= data.status[0].fname ;
 }
 
+function seeApplicants(dog_id){
+    window.location.href ="applicants.html?id="+dog_id;
+}
+
+adoption_pages.load_applicants = () =>{
+
+}
 adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');
     const status = document.getElementById("status");
