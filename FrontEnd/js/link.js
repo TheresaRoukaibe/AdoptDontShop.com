@@ -143,7 +143,7 @@ adoption_pages.load_admin = async () => {
         status.innerText = "No dogs added yet..."
     }else{
     for(let i =0; i< admin_data.status.length; i++){
-       gallery.innerHTML += "<div class='pic' onclick='seeApplicants("+admin_data.status[i].id+")>"  + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + admin_data.status[i].img_src + '"> '+"</div";
+       gallery.innerHTML += "<div class='pic' onclick='seeApplicants("+admin_data.status[i].id+")'>"  + '<img src = "C:/Users/User/Desktop/adoptDontShop/BackEnd/storage/app/public/pets/' + admin_data.status[i].img_src + '"> '+"</div";
     }
     }
 
@@ -166,7 +166,9 @@ adoption_pages.load_applicants = async () =>{
     const response_apps = await adoption_pages.getAPI(get_apps_url);
     const apps_data = response_apps.data;
     const division = document.getElementById("center");
-    division.innerHTML += "<div class='profile'>  <div class='image'> <img src='C:\Users\User\Desktop\adoptDontShop\FrontEnd\assets\img\profile.svg' width='70' height='70'></div><div class='name'>" +apps_data.status[i].name +"</div><div class='actions'><button class='btn'>Choose</button></div></div>";
+    for(let i =0; i< apps_data.status.length; i++){
+    division.innerHTML += "<div class='profile' >  <div class='image'> <img src='C:/Users/User/Desktop/adoptDontShop/FrontEnd/assets/img/profile.svg' width='70' height='70'></div><div class='name'>" +apps_data.status[i].name +"</div><div class='actions'><button class='btn'>Choose</button></div></div>";
+    }
 }
 adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');
