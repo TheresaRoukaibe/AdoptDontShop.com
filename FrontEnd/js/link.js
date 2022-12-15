@@ -159,7 +159,9 @@ function seeApplicants(dog_id){
 }
 
 adoption_pages.load_applicants = () =>{
-
+    const url_string  = window.location.search;
+    const params = new URLSearchParams(url_string);
+    const id = params.get('id');
 }
 adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');
