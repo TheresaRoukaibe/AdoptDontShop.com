@@ -170,7 +170,7 @@ adoption_pages.load_applicants = async () =>{
 division.innerHTML = "<h6> No applicants for this dog yet</h6>"
     }else{
     for(let i =0; i< apps_data.status.length; i++){
-   division.innerHTML += "<div class='name'> <div class='image'><img src='C:/Users/User/Desktop/adoptDontShop/FrontEnd/assets/img/profile.svg' width='70' height='70'></div> <div class='name'>" +apps_data.status[i].fname+" "+apps_data.status[i].lname +"</div> <div class='actions'><button class='btn_choose'>Choose</button></div></div>";
+   division.innerHTML += "<div class='name'> <div class='image'><img src='C:/Users/User/Desktop/adoptDontShop/FrontEnd/assets/img/profile.svg' width='70' height='70'></div> <div class='name'>" +apps_data.status[i].fname+" "+apps_data.status[i].lname +"</div> <div class='actions'><button id='btn_choose' class='btn'>Choose</button></div></div>";
     }
 }
 
