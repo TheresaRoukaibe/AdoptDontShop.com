@@ -179,6 +179,15 @@ choose_btn.addEventListener('click', async function(){
     const url_string  = window.location.search;
     const params = new URLSearchParams(url_string);
     const dog_id = params.get('id');
+    const user_id = window.localStorage.getItem('id');
+     const adopt_url = base_url + "user/adopt_dog";
+        const body = {
+            user_id: user_id,
+            dog_id: dog_id
+
+        };
+          const response = await adoption_pages.postAPI(adopt_url, body);
+          const save_data = response.data;
 })
 
 const del_btn = document.getElementById("delete_dog");
