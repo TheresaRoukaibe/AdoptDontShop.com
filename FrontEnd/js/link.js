@@ -165,6 +165,7 @@ adoption_pages.load_applicants = async () =>{
     const get_apps_url = base_url + "pets/get_dog_applicant/"+id;
     const response_apps = await adoption_pages.getAPI(get_apps_url);
     const apps_data = response_apps.data;
+    const division = document.getElementById("center");
     
 }
 adoption_pages.load_adopted = async () => {
