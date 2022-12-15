@@ -180,7 +180,7 @@ choose_btn.addEventListener('click', async function(){
     const params = new URLSearchParams(url_string);
     const dog_id = params.get('id');
     const user_id = window.localStorage.getItem('id');
-     const adopt_url = base_url + "user/adopt_dog";
+     const adopt_url = base_url + "admin/choose_user";
         const body = {
             user_id: user_id,
             dog_id: dog_id
