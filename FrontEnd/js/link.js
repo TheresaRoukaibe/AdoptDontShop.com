@@ -176,7 +176,9 @@ division.innerHTML = "<h6> No applicants for this dog yet</h6>"
 
 const choose_btn = document.getElementById("btn_choose");
 choose_btn.addEventListener('click', async function(){
-    
+    const url_string  = window.location.search;
+    const params = new URLSearchParams(url_string);
+    const dog_id = params.get('id');
 })
 
 const del_btn = document.getElementById("delete_dog");
