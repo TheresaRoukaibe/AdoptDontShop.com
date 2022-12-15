@@ -99,12 +99,19 @@ return response()->json([
 }
 
 function choose_user(Request $req){
-    $dog = Pet::where('id', '=', $req->dog_id);
+    $dog = Pet::where('id', '=', $req->dog_id)->first();
+    if($dog->is_adopted == 0){
+        return response()->json([
+            "status" => "Already Adopted"
+        ]);
+    }else{
     $dog->is_adopted = 1;
     $dog->user_id = $req->user_id;
+    $dog->save();
     return response()->json([
         "status" => "Pet Adopted"
     ]);
+}
 }
 
     function get_applicants($dog_id){
