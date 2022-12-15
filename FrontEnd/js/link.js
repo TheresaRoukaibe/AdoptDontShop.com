@@ -187,7 +187,10 @@ choose_btn.addEventListener('click', async function(){
 
         };
           const response = await adoption_pages.postAPI(adopt_url, body);
-          const save_data = response.data;
+          const adopt_data = response.data;
+if(adopt_data.status = "Pet Adopted"){
+    window.location.href = "admin.html";
+}
 })
 
 const del_btn = document.getElementById("delete_dog");
