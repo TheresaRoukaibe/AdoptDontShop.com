@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pet;
-
+use App\Models\Want;
+use App\Models\User_save;
 use Illuminate\Support\Facades\DB;
 
 class PetController extends Controller
@@ -85,6 +86,17 @@ class PetController extends Controller
         
     }
 
+function remove_dog($dog_id){
+$to_delete = Pet::where('id', '=', $dog_id);
+$save_delete = User_save::where('dog_id', '=', $dog_id);
+$wants = Want::where('dog_id', '=', $dog_id);
+$to_delete->delete();  
+$save_delete->delete();   
+$wants->delete(); 
+return response()->json([
+    "status" => "Deleted Dog"
+]);
+}
 
     function get_applicants($dog_id){
         if(!$dog_id){
