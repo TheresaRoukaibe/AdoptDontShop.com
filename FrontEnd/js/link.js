@@ -158,10 +158,13 @@ function seeApplicants(dog_id){
     window.location.href ="applicants.html?id="+dog_id;
 }
 
-adoption_pages.load_applicants = () =>{
+adoption_pages.load_applicants = async () =>{
     const url_string  = window.location.search;
     const params = new URLSearchParams(url_string);
     const id = params.get('id');
+    const get_apps_url = base_url + "pets/get_dog_applicant/"+id;
+    const response_apps = await adoption_pages.getAPI(get_apps_url);
+    const apps_data = response_apps.data;
 }
 adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');
