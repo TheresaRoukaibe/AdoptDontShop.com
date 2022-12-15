@@ -166,7 +166,6 @@ adoption_pages.load_applicants = async () =>{
     const response_apps = await adoption_pages.getAPI(get_apps_url);
     const apps_data = response_apps.data;
     const division = document.getElementById("center");
-    console.log(apps_data.status);
     if(apps_data.status == "No applicants"){
 division.innerHTML = "<h6> No applicants for this dog yet</h6>"
     }else{
@@ -174,6 +173,19 @@ division.innerHTML = "<h6> No applicants for this dog yet</h6>"
    division.innerHTML += "<div class='name'> <div class='image'><img src='C:/Users/User/Desktop/adoptDontShop/FrontEnd/assets/img/profile.svg' width='70' height='70'></div> <div class='name'>" +apps_data.status[i].fname+" "+apps_data.status[i].lname +"</div> <div class='actions'><button class='btn'>Choose</button></div></div>";
     }
 }
+
+const del_btn = document.getElementById("delete_dog");
+del_btn.addEventListener('click', async function(){
+    const url_string  = window.location.search;
+    const params = new URLSearchParams(url_string);
+    const id = params.get('id');
+    const del_dog_url = base_url + "admin/remove_dog/"+id;
+    const response = await adoption_pages.getAPI(del_dog_url);
+const data = response.data;
+if(data.status == "Deleted Dog"){
+    window.location.href = "admin.html";
+}
+});
 }
 adoption_pages.load_adopted = async () => {
     const user_id = window.localStorage.getItem('id');

@@ -41,7 +41,7 @@ Route::group(["prefix" => "v0.1"], function(){
     Route::group(["prefix" => "admin"], function(){
         Route::post("add_dog/{company_id}", [PetController::class, "add_dog"]);
         Route::get("get_admin_dogs/{company_id}", [PetController::class, "get_admin_dogs"]);
-        Route::post("remove_dog/{dog_id}", [PetController::class, "remove_dog"]);
+        Route::get("remove_dog/{dog_id}", [PetController::class, "remove_dog"]);
 
     });
 });
