@@ -37,7 +37,7 @@ class PetController extends Controller
                 ]);
 
                 $req->img_src->store('pets', 'public');
-                $new_pet->img_src = $req->img_src->hash();
+                $new_pet->img_src = $req->img_src->hashName();
             }
             $new_pet->name = $req->name;
             $new_pet->age = $req->age;
