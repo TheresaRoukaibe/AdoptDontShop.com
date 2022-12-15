@@ -92,7 +92,7 @@ class PetController extends Controller
                 "status" => "Params Error"
             ]);
         }else{
-            $apps = DB::table('users')->join('wants', 'users.id', '=', 'wants.user_id')->join('pets', 'pets.id', '=', $dog_id)->get();
+            $apps = DB::table('users')->join('wants', 'users.id', '=', 'wants.user_id')->where('wants.dog_id', '=', $dog_id)->get();
             if(!$apps->isEmpty()){
             return response()->json([
                 "status" => $apps

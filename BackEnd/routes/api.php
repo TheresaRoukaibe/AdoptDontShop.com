@@ -34,7 +34,7 @@ Route::group(["prefix" => "v0.1"], function(){
 
     Route::group(["prefix" => "pets"], function(){
         Route::get("get_dog/{dog_id?}", [PetController::class, "get_dog"]);
-        Route::get("get_dog_applicant/{dog_id}/{user_id}", [PetController::class, "get_applicants"]);
+        Route::get("get_dog_applicant/{dog_id}", [PetController::class, "get_applicants"]);
        
     });
 
