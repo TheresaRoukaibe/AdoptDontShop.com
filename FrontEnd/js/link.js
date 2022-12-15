@@ -167,7 +167,7 @@ adoption_pages.load_applicants = async () =>{
     const apps_data = response_apps.data;
     const division = document.getElementById("center");
     for(let i =0; i< apps_data.status.length; i++){
-    division.innerHTML += "<div class='profile' >  <div class='image'> <img src='C:/Users/User/Desktop/adoptDontShop/FrontEnd/assets/img/profile.svg' width='70' height='70'></div><div class='name'>" +apps_data.status[i].name +"</div><div class='actions'><button class='btn'>Choose</button></div></div>";
+    division.innerHTML += "<div class='profile' >  <div class='image'> <img src='C:/Users/User/Desktop/adoptDontShop/FrontEnd/assets/img/profile.svg' width='70' height='70'></div><div class='name'>" +apps_data.status[i].fname+apps_data.status[i].lname +"</div><div class='actions'><button class='btn'>Choose</button></div></div>";
     }
 }
 adoption_pages.load_adopted = async () => {
