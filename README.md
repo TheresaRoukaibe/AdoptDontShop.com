@@ -23,3 +23,6 @@ https://user-images.githubusercontent.com/102797454/208079812-f910fe21-fc29-4744
 
 ### Responsiveness
 https://user-images.githubusercontent.com/102797454/208079854-8b38a86e-ee97-46cd-8850-2a4d4103cca5.mp4
+
+### Website Admin Page Preview
+https://user-images.githubusercontent.com/102797454/208079709-e0aab370-fb57-4970-8818-ac15cca67181.mp4
