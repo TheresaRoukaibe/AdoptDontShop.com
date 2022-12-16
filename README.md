@@ -15,3 +15,23 @@ A website where users can upload profiles of their pets in case they cannot take
 
 ### Database
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+
+# Some Features :dizzy:
+
+### Dark/Light Theme 
+https://user-images.githubusercontent.com/102797454/208079812-f910fe21-fc29-4744-95b7-865264b23a3d.mp4
+
+### Responsiveness
+https://user-images.githubusercontent.com/102797454/208079854-8b38a86e-ee97-46cd-8850-2a4d4103cca5.mp4
+
+### Website Admin Page Preview
+https://user-images.githubusercontent.com/102797454/208079709-e0aab370-fb57-4970-8818-ac15cca67181.mp4
+
+# Home Page Screenshots :framed_picture:
+
+![Screenshot (70)](https://user-images.githubusercontent.com/102797454/208082099-236b9944-09a4-4b38-8720-22b935d88aaf.png)
+![Screenshot (71)](https://user-images.githubusercontent.com/102797454/208082120-2e9aa3ac-accd-4357-a808-a3acc3e85439.png)
+
+# Database :bar_chart:
+
+You can download a Database with some data from the Database folder in the repository and run it using xampp and phpmyadmin!
