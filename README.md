@@ -15,3 +15,8 @@ A website where users can upload profiles of their pets in case they cannot take
 
 ### Database
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+
+# Some Features :dizzy:
+
+### Dark/Light Theme 
+https://user-images.githubusercontent.com/102797454/208079812-f910fe21-fc29-4744-95b7-865264b23a3d.mp4
