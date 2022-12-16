@@ -31,3 +31,7 @@ https://user-images.githubusercontent.com/102797454/208079709-e0aab370-fb57-4970
 
 ![Screenshot (70)](https://user-images.githubusercontent.com/102797454/208082099-236b9944-09a4-4b38-8720-22b935d88aaf.png)
 ![Screenshot (71)](https://user-images.githubusercontent.com/102797454/208082120-2e9aa3ac-accd-4357-a808-a3acc3e85439.png)
+
+# Database :bar_chart:
+
+You can download a Database with some data from the Database folder in the repository and run it using xampp and phpmyadmin!
