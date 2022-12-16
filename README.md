@@ -20,3 +20,6 @@ A website where users can upload profiles of their pets in case they cannot take
 
 ### Dark/Light Theme 
 https://user-images.githubusercontent.com/102797454/208079812-f910fe21-fc29-4744-95b7-865264b23a3d.mp4
+
+### Responsiveness
+https://user-images.githubusercontent.com/102797454/208079854-8b38a86e-ee97-46cd-8850-2a4d4103cca5.mp4
