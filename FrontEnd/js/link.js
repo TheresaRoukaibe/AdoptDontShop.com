@@ -123,7 +123,7 @@ adoption_pages.load_saved = async () => {
     const response_saved = await adoption_pages.getAPI(get_saved);
     const saved_data = response_saved.data;
     const gallery = document.getElementById("gallery");
-    if(saved_data.status.length == 0){
+    if(saved_data.status == "No saved dogs"){
         status.innerText = "Nothing saved yet..."
     }else{
     for(let i =0; i< saved_data.status.length; i++){
@@ -214,7 +214,7 @@ adoption_pages.load_adopted = async () => {
     const get_adopted = base_url + "user/get_adopted/" +user_id;
     const response_adopted = await adoption_pages.getAPI(get_adopted);
     const adopted_data = response_adopted.data;
-     if(adopted_data.status.length == 0){
+     if(adopted_data.status == "No adopted dogs"){
         status.innerText = "No dogs adopted yet :("
     }else{
     for(let i =0; i< adopted_data.status.length; i++){
